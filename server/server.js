@@ -5,6 +5,10 @@ const {ObjectID} = require('mongodb');
 let app = express();
 app.use(bodyparser.json());
 
+
+const port = process.env.PORT || 3000;
+
+
 let {mongoose} = require('./db/mongoose');
 let {Todo} = require('./models/Todo');
 let {Users} = require('./models/Users');
@@ -51,8 +55,8 @@ app.get('/todos/:todoid',(req, res) => {
 
 });
 
-app.listen(3000 ,() => {
-    console.log("server up on port 3000")
+app.listen(port ,() => {
+    console.log(`server up on port ${port}`)
 });
 
 
